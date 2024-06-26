@@ -1,5 +1,4 @@
-
-import CommLayout from '@/components/commonlayouts';
+import CommLayout from '@/components/Commonlayouts';
 
 function layout({ children }: { children: React.ReactNode}) {
   return (

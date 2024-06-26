@@ -1,10 +1,10 @@
+import CommLayout from "@/components/Commonlayouts";
 
-import CommLayout from '@/components/commonlayouts';
 
 function  Home({children}:{children: React.ReactNode}) {
   return (
-    <div className="">
-      <CommLayout>{children}</CommLayout>
+    <div className="root">
+      <CommLayout>home</CommLayout>
     </div>
   );
 };
