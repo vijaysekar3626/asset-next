@@ -1,4 +1,7 @@
+import Image from 'next/image';
 import React from 'react';
+import sidebarimg from "@/app/favicon.ico";
+import Link from 'next/link';
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -6,12 +9,14 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen }) => {
   return (
-    <aside className={`flex-shrink-0 w-64 flex flex-col border-r transition-all duration-300 rounded-2xl bg-white ${!sidebarOpen ? 'w-20' : ''}`}>
-      <div className="h-28   rounded-t-2xl "></div>
+    <aside className={`flex-shrink-0 flex flex-col border-r transition-all duration-300 rounded-2xl overflow-hidden bg-white ${!sidebarOpen ? 'w-20' : 'w-64'}`}>
+      <div className="h-28 rounded-t-2xl mx-auto py-8">
+        <Image src={sidebarimg} height={50} width={50} alt='vijay'/>
+      </div>
       <nav className="flex-1 flex flex-col ">
-        <a href="#" className="p-2 font-inter">Nav Link 1</a>
-        <a href="#" className="p-2 font-poppins">Nav Link 2</a>
-        <a href="#" className="p-2 dummy">Nav Link 2</a>
+        <Link href="/dashboard" className="p-2 font-poppins">Dashboard</Link>
+        <Link href="/asset" className="p-2 font-poppins">Asset</Link>
+        <Link href="/profile" className="p-2 font-poppins">Accessories</Link>
       </nav>
     </aside>
   );

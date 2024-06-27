@@ -2,7 +2,9 @@ import CommLayout from '@/components/Commonlayouts';
 
 function layout({ children }: { children: React.ReactNode}) {
   return (
-    <CommLayout>{children}</CommLayout>
+    <div className="root">
+      <CommLayout>{children}</CommLayout>
+    </div>
   )
 }
 
