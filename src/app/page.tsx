@@ -1,7 +1,7 @@
 import CommLayout from "@/components/Commonlayouts";
 
 
-function  Home({children}:{children: React.ReactNode}) {
+function  Home() {
   return (
     <div className="root">
       <CommLayout>home</CommLayout>

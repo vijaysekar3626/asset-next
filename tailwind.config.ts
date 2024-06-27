@@ -16,6 +16,11 @@ const config: Config = {
       gridTemplateRows:{
         'custom': '65px auto',
       },
+      fontFamily:{
+        inter:'var(--font-inter)',
+        poppins:'var(--font-poppins)',
+        aclonica:'var(--font-aclonica)',
+      }
     },
   },
   plugins: [],

@@ -20,3 +20,11 @@ body{
   width: 95%;
   height: 95%;
 }
+.dummy{
+  font-family: var(--font-aclonica);
+}
+.pop_r{
+  font-family: var(--font-poppins);
+  font-weight: 400;
+  line-height: 1.5;
+}
