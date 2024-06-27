@@ -16,7 +16,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen }) => {
       <nav className="flex-1 flex flex-col ">
         <Link href="/dashboard" className="p-2 font-poppins">Dashboard</Link>
         <Link href="/asset" className="p-2 font-poppins">Asset</Link>
-        <Link href="/profile" className="p-2 font-poppins">Accessories</Link>
+        <Link href="/accessories" className="p-2 font-poppins">Accessories</Link>
       </nav>
     </aside>
   );
