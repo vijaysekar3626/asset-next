@@ -9,6 +9,7 @@ function NavBar() {
   const title = pathname.split('/')
   console.log('pathname: ', pathname.split("/"));
   return (
+    <div className="">
     <Row>
       <Col xs={12} className="p-2 shadow-lg rounded-[10px]">
         <div className="flex items-center justify-between">
@@ -29,6 +30,7 @@ function NavBar() {
         </div>
       </Col>
     </Row>
+    </div>
   );
 }
 

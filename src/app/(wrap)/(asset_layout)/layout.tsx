@@ -5,9 +5,9 @@ function Assetlayout({ children }: { children: React.ReactNode }) {
   
   return (
     <> 
-    <div className="w-full">
+    <div className="w-full h-full">
       <NavBar/>
-      {children}
+      <div className="h-[80%] overflow-y-auto">{children}</div>
     </div>
     </>
   );
