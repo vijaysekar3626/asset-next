@@ -7,7 +7,7 @@ function Assetlayout({ children }: { children: React.ReactNode }) {
     <> 
     <div className="w-full h-full">
       <NavBar/>
-      <div className="h-[80%] overflow-y-auto">{children}</div>
+      <div className="h-[90%] overflow-y-auto">{children}</div>
     </div>
     </>
   );

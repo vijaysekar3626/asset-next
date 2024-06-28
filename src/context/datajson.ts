@@ -3,46 +3,46 @@ export const sidebar = [
     {
         title:"dashboard",
         link:"/",
-        icon:"./favicon.ico"
+        icon:"/favicon.ico"
     },
     {
         title:"asset",
         link:"/asset",
-        icon:"./favicon.ico"
+        icon:"/favicon.ico"
     },
     {
         title:"masters",
         link:"/masters",
-        icon:"./favicon.ico"
+        icon:"/favicon.ico"
     },
     {
         title:"accessories",
         link:"/accessories",
-        icon:"./favicon.ico"
+        icon:"/favicon.ico"
     },
     {
         title:"licsence",
         link:"/licsence",
-        icon:"./favicon.ico"
+        icon:"/favicon.ico"
     },
     {
         title:"components",
         link:"/components",
-        icon:"./favicon.ico"
+        icon:"/favicon.ico"
     },
     {
         title:"consumables",
         link:"/consumables",
-        icon:"./favicon.ico"
+        icon:"/favicon.ico"
     },
     {
         title:"requestables",
         link:"/requestables",
-        icon:"./favicon.ico"
+        icon:"/favicon.ico"
     },
     {
         title:"settings",
         link:"/settings",
-        icon:"./favicon.ico"
+        icon:"/favicon.ico"
     },
 ]

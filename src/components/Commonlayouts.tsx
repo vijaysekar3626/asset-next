@@ -12,7 +12,7 @@ function CommLayout({ children }: { children: React.ReactNode}) {
     setSidebarOpen(!sidebarOpen);
   };
   return (
-    <div className="flex overflow-x-hidden h-full gap-4">
+    <div className="flex overflow-x-hidden h-full gap-4 p-[10px]">
       <Sidebar sidebarOpen={sidebarOpen} />
       <div className="grid grid-rows-[65px_auto] w-full h-full items-end">
         <Header toggleSidebar={toggleSidebar} />
