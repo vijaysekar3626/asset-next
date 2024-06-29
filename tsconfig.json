@@ -36,7 +36,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "build/types/**/*.ts"
-  ],
+, "src/app/(wrap)/(asset_layout)/_components/ReusableInputs.tsx"  ],
   "exclude": [
     "node_modules"
   ]

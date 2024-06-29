@@ -14,7 +14,19 @@ body{
   align-items: center;
   justify-content: center;
   background:#C3CBED; 
-  
+}
+.dropdown.select-search-container{
+  width: 100%;
+}
+.dropdown.select-search-input{
+  border: none;
+  border-bottom: 2px solid #f2f2f2;
+  height: 40px;
+  border-radius: 0;
+  padding: 0;
+}
+.dropdown.select-search-container:not(.select-search-is-disabled).select-search-has-focus .select-search-input, .select-search-container:not(.select-search-is-disabled) .select-search-input:hover{
+  border-color: #f2f2f2;
 }
 .root{
   width: 95%;
