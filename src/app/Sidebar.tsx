@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import sidebarimg from "@/app/favicon.ico";
 import Link from "next/link";
 import { sidebar } from "@/context/datajson";
@@ -10,7 +10,12 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen }) => {
+  const [active,setactive] = useState()
   const pathname = usePathname();
+  var activeTab = pathname.split('/')[1]
+  console.log('activeTab: ', activeTab);
+  
+
   return (
     <aside className={`flex-shrink-0 flex flex-col border-r transition-all duration-300 rounded-2xl overflow-hidden bg-white ${!sidebarOpen ? 'w-20' : 'w-64'}`}>
       <div className="h-28 rounded-t-2xl mx-auto py-8">
