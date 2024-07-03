@@ -35,7 +35,7 @@ function CommLayout({ children }: { children: React.ReactNode}) {
     <div className="flex overflow-x-hidden h-full gap-4 md  :p-[10px]">
       <Sidebar sidebarOpen={sidebarOpen}  isMobile={isMobile} handleSidebarToggle={toggleSidebar}/>
       <div className="grid grid-rows-[65px_auto] w-full h-full items-end">
-        <Header toggleSidebar={toggleSidebar} />
+        <Header toggleSidebar={toggleSidebar} sidebarOpen={sidebarOpen} />
         <main className="p-4 bg-white h-[98%] w-[98%] md:w-full m-auto rounded-2xl overflow-y-auto">{children}</main>
       </div>
     </div>

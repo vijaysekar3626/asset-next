@@ -73,3 +73,7 @@ body.mobile{
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
+
+.rotate_180{
+  transform: rotateY(180deg);
+}
