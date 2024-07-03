@@ -3,16 +3,23 @@ import React, { useState } from "react";
 import ReusableInputs from "../_components/ReusableInputs";
 import { Formik } from "formik";
 import { assetform } from "@/context/validationschema";
-import { useReactTable } from '@tanstack/react-table'
+import ReusableTable from "../_components/ReusableTable";
+import { assetTable } from "@/context/tableData";
+// import Test from "@/helpers/Test";
+// import { reusableQuery } from "@/helpers/reusableQuery";
 
 function page() {
   const [vendor, SetVendor] = useState(true);
+  const tableheader = Object.keys(assetTable[0])
+  console.log('tableheader: ', tableheader);
+  // const x = reusableQuery();
+  // console.log("sss",x);
   return (
     <div className="w-full">
       <div className="">
-
+        <ReusableTable header={tableheader} accessorKey={tableheader} data={assetTable} />
       </div>
-      <div className="p-2">
+      <div className="p-2 hidden">
         <div className="form">
           <div className="p-2">Add Asset</div>
           <Formik
