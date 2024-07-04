@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "@/assets/scss/themes.scss"
 import "./globals.css";
 import { Inter, Poppins,Aclonica } from "next/font/google";
 
@@ -29,7 +30,7 @@ export default function RootLayout({children,}: Readonly<{
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${poppins.variable} ${aclonica.variable}`}>{children}</body>
+      <body className={`${inter.variable} ${poppins.variable} ${aclonica.variable} font-poppins`}>{children}</body>
     </html>
   );
 }

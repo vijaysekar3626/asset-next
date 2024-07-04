@@ -1,5 +1,7 @@
 import React from 'react'
-import { flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table'
+import { flexRender, getCoreRowModel, getPaginationRowModel, useReactTable } from '@tanstack/react-table'
+import Link from 'next/link'
+import { Table } from 'reactstrap'
 type TableProps = {
     header:string[],
     accessorKey:string[],
@@ -16,21 +18,30 @@ function ReusableTable({header,accessorKey,data}:TableProps) {
         data,
         columns,
         getCoreRowModel:getCoreRowModel(),
+        getPaginationRowModel:getPaginationRowModel(),
+
     })
     
     const {
         getHeaderGroups,
         getRowModel,
-        getFooterGroups
+        getFooterGroups,
+        getPageOptions,
+        setPageSize,
+        getState,
+        nextPage,
+        getCanNextPage,
+        getCanPreviousPage,
+
       } = table;
   return (
-    <div>
-        <table className='border-collapse  border-slate-400 w-full'>
+    <>
+        <Table className='table-hover align-middle table-nowrap mb-0 py-5 table'>
         <thead>
           {table.getHeaderGroups().map(headerGroup => (
-            <tr key={headerGroup.id}>
+            <tr key={headerGroup.id} className='data-table-header'>
               {headerGroup.headers.map(header => (
-                <th key={header.id} className='border border-slate-300'>
+                <th key={header.id} className=''>
                   {header.isPlaceholder
                     ? null
                     : flexRender(
@@ -46,31 +57,44 @@ function ReusableTable({header,accessorKey,data}:TableProps) {
           {table.getRowModel().rows.map(row => (
             <tr key={row.id}>
               {row.getVisibleCells().map(cell => (
-                <td key={cell.id} className='border border-slate-300 text-center'>
+                <td key={cell.id} className=''>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
               ))}
             </tr>
           ))}
         </tbody>
-        <tfoot>
+      </Table>
+      <div>
           {table.getFooterGroups().map(footerGroup => (
-            <tr key={footerGroup.id}>
-              {footerGroup.headers.map(header => (
-                <th key={header.id}>
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
-                        header.column.columnDef.footer,
-                        header.getContext()
-                      )}
-                </th>
-              ))}
-            </tr>
+              <div className="items-center mt-3 xl:mt-4 justify-between flex text-xs" key={footerGroup.id}>
+                    <div className="flex-shrink-0">
+                      <div className="text-slate-400">
+                        Showing <span className="fw-semibold">5</span> of{' '}
+                        <span className="fw-semibold">25</span> Results
+                      </div>
+                    </div>
+                    <ul className="pagination pagination-separated pagination-sm mb-0">
+                      <li className="page-item disabled">
+                        <Link href="#" className="page-link">
+                          ←
+                        </Link>
+                      </li>
+                      <li className="page-item active">
+                        <Link href="#" className="page-link">
+                          1
+                        </Link>
+                      </li>
+                      <li className="page-item">
+                        <Link href="#" className="page-link">
+                          →
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
           ))}
-        </tfoot>
-      </table>
-    </div>
+        </div>
+        </>
   )
 }
 

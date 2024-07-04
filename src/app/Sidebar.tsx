@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React, { useState } from "react";
-import sidebarimg from "@/app/favicon.ico";
+import sidebarimg from "../../public/asset/image/logo.png";
 import Link from "next/link";
 import { sidebar } from "@/context/datajson";
 import { usePathname } from "next/navigation";
@@ -26,10 +26,10 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen,isMobile,handleSidebarTog
     
     <aside className={`${(isMobile && !sidebarOpen) ? "absolute z-10 h-full rounded-none flex before:bg-[rgba(0,0,0,0.2)] w-64" :'hidden'} flex-shrink-0 md:flex flex-col border-r transition-all duration-300 rounded-2xl overflow-hidden bg-white ${!sidebarOpen ? 'w-16' : 'w-64'}`}>
       <div className="md:hidden absolute top-3 right-0" onClick={handleSidebar}>&#9664;</div>
-      <div className="h-28 rounded-t-2xl mx-auto py-8">
-        <Image src={sidebarimg} height={50} width={50} alt="vijay" />
+      <div className="h-28 rounded-t-2xl mx-auto py-8 w-[150px]">
+        <Image src={sidebarimg}  alt="vijay" />
       </div>
-      <nav className="flex-1 flex flex-col w-[95%] m-auto overflow-y-auto">
+      <nav className="flex-1 flex flex-col w-[95%] m-auto overflow-y-auto nav-item">
         {sidebar.map((item: any, index: any) => {
           return (
             <div key={index}>

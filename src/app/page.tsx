@@ -1,5 +1,6 @@
 import CommLayout from "@/components/Commonlayouts";
 import Dashboard from "./(wrap)/dashboard/page";
+import "@/assets/scss/themes.scss"
 
 
 function  Home() {

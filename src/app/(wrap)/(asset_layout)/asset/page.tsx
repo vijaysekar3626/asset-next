@@ -5,6 +5,7 @@ import { Formik } from "formik";
 import { assetform } from "@/context/validationschema";
 import ReusableTable from "../_components/ReusableTable";
 import { assetTable } from "@/context/tableData";
+import { Table } from "reactstrap";
 // import Test from "@/helpers/Test";
 // import { reusableQuery } from "@/helpers/reusableQuery";
 
@@ -12,11 +13,9 @@ function page() {
   const [vendor, SetVendor] = useState(true);
   const tableheader = Object.keys(assetTable[0])
   console.log('tableheader: ', tableheader);
-  // const x = reusableQuery();
-  // console.log("sss",x);
   return (
-    <div className="w-full">
-      <div className="">
+    <div className="w-full h-full">
+      <div className="flex flex-col justify-between h-full">
         <ReusableTable header={tableheader} accessorKey={tableheader} data={assetTable} />
       </div>
       <div className="p-2 hidden">
