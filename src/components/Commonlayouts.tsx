@@ -2,14 +2,14 @@
 
 import Header from '@/app/Header';
 import Sidebar from '@/app/Sidebar';
+import store from '@/app/store/navStore';
 import React, { useEffect, useState } from 'react'
+import { Provider } from 'react-redux';
 
 
 function CommLayout({ children }: { children: React.ReactNode}) {
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  console.log('sidebarOpen: ', sidebarOpen);
   const [isMobile, setIsMobile] = useState(false);
-  console.log('isMobile: ', isMobile);
 
     useEffect(()=>{
       const handleResize = ()=>{
@@ -32,6 +32,7 @@ function CommLayout({ children }: { children: React.ReactNode}) {
     setSidebarOpen(!sidebarOpen);
   };
   return (
+    <Provider store={store}>
     <div className="flex overflow-x-hidden h-full gap-4 md  :p-[10px]">
       <Sidebar sidebarOpen={sidebarOpen}  isMobile={isMobile} handleSidebarToggle={toggleSidebar}/>
       <div className="grid grid-rows-[65px_auto] w-full h-full items-end">
@@ -39,6 +40,7 @@ function CommLayout({ children }: { children: React.ReactNode}) {
         <main className="p-4 bg-white h-[98%] w-[98%] md:w-full m-auto rounded-2xl overflow-y-auto">{children}</main>
       </div>
     </div>
+    </Provider>
   )
 }
 

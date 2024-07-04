@@ -16,7 +16,6 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen,isMobile,handleSidebarTog
   const [active,setactive] = useState(sidebarOpen)
   const pathname = usePathname();
   var activeTab = pathname.split('/')[1]
-  console.log('activeTab: ', activeTab);
   
   const handleSidebar = ()=>{
     handleSidebarToggle();
