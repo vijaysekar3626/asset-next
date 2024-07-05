@@ -2,10 +2,11 @@
 import React, { useEffect, useState } from "react";
 import ReusableInputs from "../_components/ReusableInputs";
 import { Formik } from "formik";
-import { assetform } from "@/context/validationschema";
+import { assetform, assetvendorform } from "@/context/validationschema";
 import ReusableTable from "../_components/ReusableTable";
 import { assetTable } from "@/context/tableData";
 import { useSelector } from "react-redux";
+import Button from "@/components/Button";
 
 function page() {
   const navstate = useSelector((state:any)=>state.nav)
@@ -14,6 +15,7 @@ function page() {
 
   const [showaddForm, setShowaddForm] = useState(false);
   const [showassignForm, setShowassignForm] = useState(false);
+  
 
   useEffect(()=>{
     if(navstate.action === 'addasset'){
@@ -22,7 +24,21 @@ function page() {
     else{
       setShowaddForm(false)
     }
-  })
+  }, [navstate.action]);
+
+  const handleSubmit =(values:any,actions:any)=>{
+      const formData = {
+        ...values,
+        vendor:vendor,
+      }
+      console.log('formData: ', formData);
+      actions.resetForm();
+      SetVendor(!vendor);
+      if(vendor){
+        
+      }
+      actions.setSubmitting(false);
+  }
 
   return (
     <div className="w-full h-full">
@@ -45,13 +61,15 @@ function page() {
                   model: "",
                   manufacturer: "",
                   location: "",
-                  leasor: "",
+                  supplier:"",
+                  order_num:"",
+                  pur_date:"",
+                  eol:"",
+                  cost:"",
+                  tpc:"",
                 }}
-                validationSchema={assetform}
-                onSubmit={(values, { setSubmitting }) => {
-                  setSubmitting(false);
-                  SetVendor(!vendor);
-                }}
+                validationSchema={vendor ? assetform :assetvendorform}
+                onSubmit={handleSubmit}
               >
                 {({
                   values,
@@ -63,7 +81,7 @@ function page() {
                 }) => (
                   <form onSubmit={handleSubmit}>
                     {vendor ? (
-                      <div className="grid grid-cols-2 gap-3 mb-5">
+                      <div className="grid grid-cols-2 gap-x-5 mb-5">
                         <div>
                           <ReusableInputs
                             label="Ownership"
@@ -165,107 +183,90 @@ function page() {
                           </p>
                         </div>
                       </div>
-                    ) : (
+                    ) :
+                    (
                       <div className="grid grid-cols-2 gap-3 mb-5">
                         <div>
                           <ReusableInputs
-                            label="Leasor"
-                            type="text"
-                            placeholder="please enter leasor"
-                            name={"leasor"}
+                            label="Supplier"
+                            type="select"
+                            placeholder="please enter"
+                            options={[
+                              { name: "Company", value: "company" },
+                              { name: "Lease", value: "lease" },
+                              { name: "Employee", value: "employee" },
+                            ]}
+                            name={"supplier"}
                           />
                           <p className="min-h-5 text-red-500 font-poppins font-medium text-xs">
-                            {errors.leasor && touched.leasor && errors.leasor}
+                            {errors.supplier && touched.supplier && errors.supplier}
                           </p>
                         </div>
                         <div>
                           <ReusableInputs
-                            label="Leasor Agreement Number"
+                            label="order Number"
                             type="text"
-                            placeholder="please enter aggrement number"
-                            name={"asset_name"}
-                            valuefff={values.asset_name}
+                            placeholder="please enter"
+                            name={"order_num"}
+                            valuefff={values.order_num}
                           />
                           <p className="min-h-5 text-red-500 font-poppins font-medium text-xs">
-                            {errors.asset_name &&
-                              touched.asset_name &&
-                              errors.asset_name}
+                            {errors.order_num &&
+                              touched.order_num &&
+                              errors.order_num}
                           </p>
                         </div>
                         <div>
                           <ReusableInputs
-                            label="Category"
+                            label="Purchase Date"
                             type="date"
-                            name={"category"}
+                            name={"pur_date"}
                           />
                           <p className="min-h-5 text-red-500 font-poppins font-medium text-xs">
-                            {errors.category &&
-                              touched.category &&
-                              errors.category}
+                            {errors.pur_date &&
+                              touched.pur_date &&
+                              errors.pur_date}
                           </p>
                         </div>
                         <div>
                           <ReusableInputs
-                            label="Model"
-                            type="select"
+                            label="End of Life"
+                            type="date"
                             placeholder="please enter"
-                            options={[
-                              { name: "GF3366", value: "gf3366" },
-                              { name: "MSI-Katana", value: "msi-katana" },
-                              { name: "ASUS-TUF", value: "asus-tuf" },
-                            ]}
-                            name={"model"}
+                            name={"eol"}
                           />
                           <p className="min-h-5 text-red-500 font-poppins font-medium text-xs">
-                            {errors.model && touched.model && errors.model}
+                            {errors.eol && touched.eol && errors.eol}
                           </p>
                         </div>
                         <div>
                           <ReusableInputs
-                            label="Manufacturer"
-                            type="select"
+                            label="Purchase Cost Per Item"
+                            type="text"
                             placeholder="please enter"
-                            options={[
-                              { name: "HP", value: "hp" },
-                              { name: "ASUS", value: "asus" },
-                              { name: "MSI", value: "msi" },
-                            ]}
-                            name={"manufacturer"}
+                            name={"cost"}
                           />
                           <p className="min-h-5 text-red-500 font-poppins font-medium text-xs">
-                            {errors.manufacturer &&
-                              touched.manufacturer &&
-                              errors.manufacturer}
+                            {errors.cost &&
+                              touched.cost &&
+                              errors.cost}
                           </p>
                         </div>
                         <div>
                           <ReusableInputs
-                            label="Location"
-                            type="select"
-                            options={[
-                              { name: "confrence 1", value: "confrence1" },
-                              { name: "confrence 2", value: "confrence2" },
-                              { name: "confrence 3", value: "confrence3" },
-                            ]}
-                            name={"location"}
+                            label="Total Purchase Cost"
+                            type="text"
+                            name={"tpc"}
                           />
                           <p className="min-h-5 text-red-500 font-poppins font-medium text-xs">
-                            {errors.location &&
-                              touched.location &&
-                              errors.location}
+                            {errors.tpc &&
+                              touched.tpc &&
+                              errors.tpc}
                           </p>
                         </div>
                       </div>
                     )}
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:outline-none "
-                    >
-                      <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                        Submit
-                      </span>
-                    </button>
+                    <Button title={vendor?'Next':'Submit'} disabled={isSubmitting} />
                   </form>
                 )}
               </Formik>

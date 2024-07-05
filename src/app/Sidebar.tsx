@@ -34,7 +34,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen,isMobile,handleSidebarTog
             <div key={index}>
               <Link
                 href={item.link}
-                className=" flex gap-2 p-3 hover:bg-gradient-to-br from-purple-600 to-blue-500 rounded-[10px] outline-none hover:text-white"
+                className="flex gap-2 p-2.5 hover:bg-gradient-to-br from-purple-600 to-blue-500 rounded-[10px] outline-none hover:text-white"
                 key={index}
               >
                 <Image
@@ -44,7 +44,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen,isMobile,handleSidebarTog
                   alt=""
                 />
                 { (sidebarOpen || isMobile) && (
-                  <span className="h-full font-poppins capitaliz">
+                  <span className="h-full font-poppins capitalize text-sm">
                     {item.title}
                   </span>
                 )}

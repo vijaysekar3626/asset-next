@@ -39,7 +39,7 @@ const ReusableInputs: React.FC<ReusableInputsProps> = ({
           switch (type) {
             case "text" :
               return(
-                <input 
+                <input
                 {...field}
                 className="dropdown select-search-input bg-transparent outline-none h-[40px] font-poppins text-sm"
                 type={type}

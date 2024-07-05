@@ -18,6 +18,9 @@ body{
 body.mobile{
   background-attachment: fixed;
 }
+th,td{
+  text-align: center;
+}
 .gradient_border{
   border: 1px solid transparent; 
   border-image: linear-gradient(to right, #9333ea, #3b82f6); 
@@ -29,8 +32,9 @@ body.mobile{
 .dropdown.select-search-input{
   border: none;
   border: 1px solid #ced4da;
-  border-radius: 5px;
-  height: 40px;
+  border-radius: 3px;
+  height: 35px;
+  font-size: 13px;
 }
 .dropdown.select-search-input:hover{
   border: 1px solid transparent; 
